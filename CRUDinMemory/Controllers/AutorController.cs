@@ -8,9 +8,9 @@ namespace CRUDinMemory.Controllers
     {
         private readonly AutorRepository _autorRepository;
 
-        public AutorController()
+        public AutorController(AutorRepository autorRepository)
         {
-            _autorRepository = new AutorRepository();
+            _autorRepository = autorRepository;
         }
         //Coleção em memória - Estado global por ser static
         // public static List<AutorModel> Autores { get; } = new List<AutorModel>();//Lista não é thead safe, pois pode haver concorrência
