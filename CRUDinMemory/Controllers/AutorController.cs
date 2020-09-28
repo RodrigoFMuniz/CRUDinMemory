@@ -1,6 +1,7 @@
 ﻿using CrudComAdo.Models;
 using CrudComAdo.Repositories;
 using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
 
 namespace CrudComAdo.Controllers
 {
@@ -16,18 +17,18 @@ namespace CrudComAdo.Controllers
         // public static List<AutorModel> Autores { get; } = new List<AutorModel>();//Lista não é thead safe, pois pode haver concorrência
         //public static Dictionary<int,AutorModel> Autores { get; } = new Dictionary<int, AutorModel>();
         // List
-        public IActionResult Index() 
+        public async Task<IActionResult> Index() 
         {
             //var autores = Autores.Select(x=>x.Value);
             //return View(autores);
             
-            return View(_autorRepository.GetAll());
+            return View(await _autorRepository.GetAllAsync());
         }
 
         //Details
-        public IActionResult Details(int id)
+        public async Task<IActionResult> Details(int id)
         {
-            return View(_autorRepository.GetById(id));
+            return View(await _autorRepository.GetByIdAsync(id));
 
 
             //if (Autores.TryGetValue(id, out var autorModel))
@@ -67,10 +68,10 @@ namespace CrudComAdo.Controllers
 
         //Edit
         [HttpGet]
-        public IActionResult Edit(int id)
+        public async Task<IActionResult> Edit(int id)
         {
 
-            return View(_autorRepository.GetById(id));
+            return View(await _autorRepository.GetByIdAsync(id));
             //View(Autores.First(x => x.Id == id));
             //if (Autores.TryGetValue(id, out var autorModel))
             //{
@@ -80,9 +81,9 @@ namespace CrudComAdo.Controllers
             //return RedirectToAction(nameof(Index));
         }
         [HttpPost]
-        public IActionResult Edit(AutorModel autorModel)
+        public async  Task<IActionResult> Edit(AutorModel autorModel)
         {
-            _autorRepository.Edit(autorModel);         
+            await _autorRepository.Edit(autorModel);         
 
             return RedirectToAction(nameof(Index));
             // var autorToEdit = Autores.First(x => x.Id == autorModel.Id);
@@ -104,9 +105,9 @@ namespace CrudComAdo.Controllers
 
         //Delete
         [HttpGet]
-        public IActionResult Delete(int id)
+        public async Task<IActionResult> Delete(int id)
         {
-            return View(_autorRepository.GetById(id));
+            return View(await _autorRepository.GetByIdAsync(id));
             // View(Autores.First(x => x.Id == id));
             //if (Autores.TryGetValue(id, out var autorModel))
             //{
@@ -116,9 +117,9 @@ namespace CrudComAdo.Controllers
             //return RedirectToAction(nameof(Index));
         }
         [HttpPost]
-        public IActionResult Delete(AutorModel autorModel)
+        public async  Task<IActionResult> Delete(AutorModel autorModel)
         {
-            _autorRepository.Remove(autorModel);
+            await _autorRepository.RemoveAsync(autorModel);
             return RedirectToAction(nameof(Index));
             ////var autorToRemove = Autores.FirstOrDefault(x => x.Id == autorModel.Id);          
             //Autores.TryRemove(autorModel.Id, out var autorRemoved);
