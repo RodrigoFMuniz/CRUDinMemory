@@ -14,27 +14,25 @@ namespace CrudComAdo.Repositories
 
         public IEnumerable<AutorModel> GetAll()
         {
-            var sqlConnection = new SqlConnection(_connectionString);   //Instância da conector        
-
-            var commandText = "select * from Autor"; //Comando SQL
-
-            var sqlCommand = new SqlCommand(commandText, sqlConnection); //Instância do comando
-
-            sqlCommand.CommandType = CommandType.Text; // Tipo do comando
+            const string commandText = "select * from Autor"; //Comando SQL
+            using var sqlConnection = new SqlConnection(_connectionString);//Instância da conector  
+            using var sqlCommand = new SqlCommand(commandText, sqlConnection)//Instância do comando
+            {
+                CommandType = CommandType.Text // Tipo do comando
+            };              
 
             sqlConnection.Open(); // Abertura da conexão
-             
-            var reader = sqlCommand.ExecuteReader(); // Captura dos dados de apresentação (capturados via Select)
 
+            var reader = sqlCommand.ExecuteReader(); // Captura dos dados de apresentação (capturados via Select)
 
             var autores = new List<AutorModel>();//Lista para armazenamento das informações vindas do DB
 
             while (reader.Read())
-            {               
-                var id = reader.GetFieldValue<int>(0);
-                var nome = reader.GetFieldValue<string>(1);
-                var ultimoNome = reader.GetFieldValue<string>(2);
-                var nascimento = reader.GetFieldValue<DateTime>(3);
+            {
+                var id = reader.GetFieldValue<int>("Id");
+                var nome = reader.GetFieldValue<string>("Nome");
+                var ultimoNome = reader.GetFieldValue<string>("UltimoNome");
+                var nascimento = reader.GetFieldValue<DateTime>("Nascimento");
 
                 var autorModel = new AutorModel
                 {
@@ -45,13 +43,14 @@ namespace CrudComAdo.Repositories
                 };
                 autores.Add(autorModel);
             }
-
-            sqlCommand.Dispose();
-            sqlConnection.Close();
-            sqlConnection.Dispose();
-
             return autores;
-        }
+
+        }        
+      
+          
+
+            
+       
         public AutorModel GetById(int id)
         {
             var autor = Autores.First(x=>x.Id == id);
