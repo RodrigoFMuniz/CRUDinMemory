@@ -1,8 +1,8 @@
-﻿using CRUDinMemory.Models;
+﻿using CrudComAdo.Models;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace CRUDinMemory.Repositories
+namespace CrudComAdo.Repositories
 {
     public class LivroRepository
     {

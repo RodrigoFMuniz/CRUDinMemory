@@ -5,9 +5,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using CRUDinMemory.Models;
+using CrudComAdo.Models;
 
-namespace CRUDinMemory.Controllers
+namespace CrudComAdo.Controllers
 {
     public class HomeController : Controller
     {

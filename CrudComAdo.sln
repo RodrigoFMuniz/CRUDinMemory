@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30517.126
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CRUDinMemory", "CRUDinMemory\CRUDinMemory.csproj", "{7CCC7A20-81C0-4A41-A66F-88ABA29B002B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CrudComAdo", "CRUDinMemory\CrudComAdo.csproj", "{7CCC7A20-81C0-4A41-A66F-88ABA29B002B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csproj", "{65FD5A17-6E45-4EBF-801A-B4B549012147}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain", "Domain\Domain.csproj", "{65FD5A17-6E45-4EBF-801A-B4B549012147}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data", "Data\Data.csproj", "{F9F8BE89-A92A-4774-86BD-574A08335760}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Data", "Data\Data.csproj", "{F9F8BE89-A92A-4774-86BD-574A08335760}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01-Presentation", "01-Presentation", "{E954036F-5816-48D2-A83F-2F307558802C}"
 EndProject

@@ -1,6 +1,6 @@
 using System;
 
-namespace CRUDinMemory.Models
+namespace CrudComAdo.Models
 {
     public class ErrorViewModel
     {

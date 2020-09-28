@@ -1,8 +1,8 @@
-﻿using CRUDinMemory.Models;
-using CRUDinMemory.Repositories;
+﻿using CrudComAdo.Models;
+using CrudComAdo.Repositories;
 using Microsoft.AspNetCore.Mvc;
 
-namespace CRUDinMemory.Controllers
+namespace CrudComAdo.Controllers
 {
     public class AutorController : Controller
     {
